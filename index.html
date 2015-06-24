@@ -19,13 +19,11 @@
 
         var emailDate;
 
-        document.getElementById("inbox").innerHTML = "INBOX (" + totalEmails +")";
-
        	//Load Initial Emails
 
-       	var i = 0;
 
-       	for(i = 0; i < totalEmails; i++)
+
+       	for(var i = 0; i < totalEmails; i++)
        	{
 			newEmail = getEmailElement(window.geemails[i]);
 			var emailList = document.getElementsByClassName("emails")[0];
@@ -34,16 +32,9 @@
 
 		// Add message toggle event listeners
 
-		var infoBar = document.querySelectorAll(".email ul");
+		reindexEmails();
 
-		//infoBar[2].style.background = "#FFFF00";
-
-		
-		for(var j = 0; j < totalEmails; j++)
-		{
-			var x = j.valueOf();
-			infoBar[j].setAttribute("onclick", "toggleEmail(" + j + ")");
-		}
+		updateInbox();
 		
 		
 
@@ -52,41 +43,25 @@
 
       }
 
-      // Toggle message body display
-      /*
-      function toggleEmail(emailID)
-        {
-        	
-        	var currentEmailBody = document.querySelectorAll("#email-" + emailID + " .body")[0];
+      	function updateInbox()
+      	{
+      		totalUnreadEmails = document.querySelectorAll(".email.unread").length;
+      		document.getElementById("inbox").innerHTML = "INBOX (" + totalUnreadEmails +")";
+      	}
 
-        	if(currentEmailBody.style.display != "block")
-        	{
-        		currentEmailBody.style.display = "block";
+      	function reindexEmails()
+      	{
+      		var infoBar = document.querySelectorAll(".email ul");
+      		totalEmails = infoBar.length;
 
-        		if(document.getElementById("email-" + emailID).classList.contains("unread"))
-        		{
-        			document.getElementById("email-" + emailID).classList.remove("unread");
-        			document.getElementById("email-" + emailID).classList.add("read");
-
-        			//totalUnreadEmails--;
-        		}
-        	}
-
-        	else
-        	{
-        		document.getElementById("test").innerHTML = currentEmailBody.style.display;
-        		currentEmailBody.style.display = "none";
-
-
-        	}
-        	
-        }
-        */
+      		for(var i = 0; i < totalEmails; i++)
+      		{
+      			infoBar[i].setAttribute("onclick", "toggleEmail(" + i + ")");
+      		}
+      	}
 
         function toggleEmail(emailSelector)
         {
-        	//document.getElementById("test").innerHTML = "The Click Event has triggered";
-
         	document.getElementById("test").innerHTML = emailSelector;
         	var currentEmailBlock = document.querySelectorAll(".email .body");
 
@@ -101,6 +76,7 @@
         			document.querySelectorAll(".email")[emailSelector].classList.remove("unread");
         			document.querySelectorAll(".email")[emailSelector].classList.add("read");
 
+        			updateInbox();
         			//totalUnreadEmails--;
         		}
         	}
@@ -109,9 +85,6 @@
         	{
         		currentEmailBody.style.display = "none";
         	}
-			
-
-        	
         }
 
         // Get email Div package from object
