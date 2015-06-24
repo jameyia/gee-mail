@@ -1,0 +1,91 @@
+/* === RESET === */
+
+* {margin: 0; padding: 0;} /* Make things 'snap' */
+/*
+* {border: 1px solid lime;}
+*/
+
+/* === PAGE === */
+
+
+
+/* === HEADER === */
+
+header {background-color: #FF0000;}
+
+header h1,
+header h2 {
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* === NAVIGATION === */
+
+nav ul {
+	width: 100%;
+	text-align: center;
+	background-color: #000000;
+}
+
+nav a {
+	display: inline-block;
+	width: 100%;
+	text-decoration: none;
+}
+
+nav a:link,
+nav a:visited {
+	color: lime;
+}
+
+nav a:hover,
+nav a:active {
+		color: #FFFF00;
+}
+
+nav li {
+	display: inline-block;
+	width: 25%;
+}
+/* === MAIN CONTENT (EMAILS) === */
+
+
+.legend ul {
+	width: 100%;
+	text-align: left;
+	border-bottom: 2px solid #000000;
+	padding: 2px 0;
+}
+
+.legend li {
+	display:inline-block;
+	width: 30%;
+	text-align: left;
+	border-left: 1px solid red;
+	margin-left: -1px;
+}
+
+/* Email Listing */
+
+.email {border-bottom: 1px solid red;}
+
+.email ul {
+	width: 100%;
+	text-align: left;
+}
+
+.email li {
+	display:inline-block;
+	width: 30%;
+
+}
+
+.unread {font-weight: bold;}
+.read {font-weight: initial;}
+
+.body {
+	display:none;
+	border-top: 1px dotted red;
+}
+
+/* === FOOTER === */
