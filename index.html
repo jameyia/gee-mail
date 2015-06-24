@@ -21,7 +21,74 @@
 
         document.getElementById("inbox").innerHTML = "INBOX (" + totalEmails +")";
 
-       	
+       	//Load Initial Emails
+
+       	var i = 0;
+
+       	for(i = 0; i < totalEmails; i++)
+       	{
+       		// Construct Email
+       		var newSender = document.createTextNode(window.geemails[i].sender);
+       		var newSubject = document.createTextNode(window.geemails[i].subject);
+       		var newDate = document.createTextNode(window.geemails[i].date.toDateString());
+       		
+       		var newBody = document.createTextNode(window.geemails[i].body);
+
+       		var newEmail = document.createElement("DIV");
+       		newEmail.classList.add("email", "unread");
+       		newEmail.id = "email-" + i;
+
+       		var infoList = document.createElement("UL");
+       		infoList.classList.add("info");
+
+       		// Date
+       		var infoListItem = document.createElement("LI");
+       		infoListItem.classList.add("date");
+       		infoListItem.appendChild(newDate);
+
+       		infoList.appendChild(infoListItem);
+
+       		// Sender
+ 			infoListItem = document.createElement("LI");
+ 			infoListItem.classList.add("sender");  
+ 			infoListItem.appendChild(newSender);
+
+ 			infoList.appendChild(infoListItem);
+
+ 			// Subject
+ 			infoListItem = document.createElement("LI");
+ 			infoListItem.classList.add("subject");  
+ 			infoListItem.appendChild(newSubject);
+
+ 			infoList.appendChild(infoListItem);
+ 			// Put info list into email
+ 			newEmail.appendChild(infoList);
+
+ 			//Body
+ 			bodyItem = document.createElement("DIV");
+ 			bodyItem.classList.add("body");
+
+ 			bodyParagraph = document.createElement("P");
+ 			bodyParagraph.appendChild(newBody);
+
+ 			bodyItem.appendChild(bodyParagraph);
+
+ 			newEmail.appendChild(bodyItem);
+
+
+
+ 			var emailList = document.getElementsByClassName("emails")[0];
+
+ 			emailList.insertBefore(newEmail, emailList.childNodes[0]);
+
+
+
+
+
+       		// Insert Email
+
+
+       	}
 
         // RECURRING JAVASCRIPT CODE
 
@@ -59,8 +126,8 @@
 	</head>
 	<body>
 		<header>
-		<h1>Gee Mail</h1>
-		<h2>Because Fe-Mail and He-Mail didn't get the market share</h2>
+		<h1><span id="gee-mail">Gee Mail</span></h1>
+		<h2>Because <span id="fe-mail">Fe-Mail</span> and <span id="he-mail">He-Mail</span> just didn't get the whole market share</h2>
 		</header>
 
 		<nav>
@@ -83,6 +150,8 @@
 			</div>
 
 			<div class="emails">
+
+				<!--
 				<div class="email unread" id="email-1">
 					<ul class="info" onclick="toggleEmail(1)">
 						<li class="date">Sample Date</li>
@@ -103,6 +172,8 @@
 						<p>Sample Body blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p> 
 					</div>
 				</div>
+
+				-->
 
 			</div>
 
