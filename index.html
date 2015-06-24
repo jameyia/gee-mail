@@ -19,6 +19,15 @@
 
         var emailDate;
 
+        //Sort Dates
+
+        window.geemails.sort(function(a, b){return b.date.getTime()-a.date.getTime();});
+
+
+        document.getElementById("test").innerHTML = window.geemails[1].date;
+        document.getElementById("test2").innerHTML = window.geemails[0].date;
+        document.getElementById("test3").innerHTML = window.geemails[1].date - window.geemails[0].date;
+
        	//Load Initial Emails
 
 
@@ -178,5 +187,7 @@
 		</footer>
 
 		<p id="test">date</p>
+		<p id="test2">date</p>
+		<p id="test3">date</p>
 	</body>
 </html>
