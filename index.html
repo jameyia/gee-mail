@@ -42,7 +42,7 @@
 		for(var j = 0; j < totalEmails; j++)
 		{
 			var x = j.valueOf();
-			infoBar[j].addEventListener("click", function(){toggleEmail(x)});
+			infoBar[j].setAttribute("onclick", "toggleEmail(" + j + ")");
 		}
 		
 		
