@@ -10,7 +10,7 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
-        
+        // SORT EMAILS
 
         // INITIAL JAVASCRIPT CODE
 
@@ -27,16 +27,94 @@
 
        	for(i = 0; i < totalEmails; i++)
        	{
-       		// Construct Email
-       		var newSender = document.createTextNode(window.geemails[i].sender);
-       		var newSubject = document.createTextNode(window.geemails[i].subject);
-       		var newDate = document.createTextNode(window.geemails[i].date.toDateString());
+			newEmail = getEmailElement(window.geemails[i]);
+			var emailList = document.getElementsByClassName("emails")[0];
+			emailList.insertBefore(newEmail, emailList.childNodes[0]);
+		}
+
+		// Add message toggle event listeners
+
+		var infoBar = document.querySelectorAll(".email ul");
+
+		for(i = 0; i < infoBar.length; i++)
+		{
+			infoBar[i].addEventListener("click", toggleEmail(i));
+		}
+
+        // RECURRING JAVASCRIPT CODE
+
+      }
+
+      // Toggle message body display
+      /*
+      function toggleEmail(emailID)
+        {
+        	
+        	var currentEmailBody = document.querySelectorAll("#email-" + emailID + " .body")[0];
+
+        	if(currentEmailBody.style.display != "block")
+        	{
+        		currentEmailBody.style.display = "block";
+
+        		if(document.getElementById("email-" + emailID).classList.contains("unread"))
+        		{
+        			document.getElementById("email-" + emailID).classList.remove("unread");
+        			document.getElementById("email-" + emailID).classList.add("read");
+
+        			//totalUnreadEmails--;
+        		}
+        	}
+
+        	else
+        	{
+        		document.getElementById("test").innerHTML = currentEmailBody.style.display;
+        		currentEmailBody.style.display = "none";
+
+
+        	}
+        	
+        }
+        */
+
+        function toggleEmail(emailSelector)
+        {
+        	var currentEmailBody = document.querySelectorAll(".email .body")[emailSelector];
+
+        	if(currentEmailBody.style.display != "block")
+        	{
+        		currentEmailBody.style.display = "block";
+
+        		if(document.querySelectorAll(".email")[emailSelector].classList.contains("unread"))
+        		{
+        			document.querySelectorAll(".email")[emailSelector].classList.remove("unread");
+        			document.querySelectorAll(".email")[emailSelector].classList.add("read");
+
+        			//totalUnreadEmails--;
+        		}
+        	}
+
+        	else
+        	{
+        		currentEmailBody.style.display = "none";
+        	}
+
+
+        	
+        }
+
+        // Get email Div package from object
+        function getEmailElement(emailObject)
+        {
+        	// Construct Email
+       		var newSender = document.createTextNode(emailObject.sender);
+       		var newSubject = document.createTextNode(emailObject.subject);
+       		var newDate = document.createTextNode(emailObject.date.toDateString());
        		
-       		var newBody = document.createTextNode(window.geemails[i].body);
+       		var newBody = document.createTextNode(emailObject.body);
 
        		var newEmail = document.createElement("DIV");
        		newEmail.classList.add("email", "unread");
-       		newEmail.id = "email-" + i;
+       		//newEmail.id = "email-" + i;
 
        		var infoList = document.createElement("UL");
        		infoList.classList.add("info");
@@ -75,51 +153,7 @@
 
  			newEmail.appendChild(bodyItem);
 
-
-
- 			var emailList = document.getElementsByClassName("emails")[0];
-
- 			emailList.insertBefore(newEmail, emailList.childNodes[0]);
-
-
-
-
-
-       		// Insert Email
-
-
-       	}
-
-        // RECURRING JAVASCRIPT CODE
-
-      }
-
-      function toggleEmail(emailID)
-        {
-        	
-        	var currentEmailBody = document.querySelectorAll("#email-" + emailID + " .body")[0];
-
-        	if(currentEmailBody.style.display != "block")
-        	{
-        		currentEmailBody.style.display = "block";
-
-        		if(document.getElementById("email-" + emailID).classList.contains("unread"))
-        		{
-        			document.getElementById("email-" + emailID).classList.remove("unread");
-        			document.getElementById("email-" + emailID).classList.add("read");
-
-        			//totalUnreadEmails--;
-        		}
-        	}
-
-        	else
-        	{
-        		document.getElementById("test").innerHTML = currentEmailBody.style.display;
-        		currentEmailBody.style.display = "none";
-
-
-        	}
-        	
+ 			return newEmail;
         }
 
     </script>
