@@ -36,10 +36,17 @@
 
 		var infoBar = document.querySelectorAll(".email ul");
 
-		for(i = 0; i < infoBar.length; i++)
+		//infoBar[2].style.background = "#FFFF00";
+
+		
+		for(var j = 0; j < totalEmails; j++)
 		{
-			infoBar[i].addEventListener("click", toggleEmail(i));
+			var x = j.valueOf();
+			infoBar[j].addEventListener("click", function(){toggleEmail(x)});
 		}
+		
+		
+
 
         // RECURRING JAVASCRIPT CODE
 
@@ -78,7 +85,12 @@
 
         function toggleEmail(emailSelector)
         {
-        	var currentEmailBody = document.querySelectorAll(".email .body")[emailSelector];
+        	//document.getElementById("test").innerHTML = "The Click Event has triggered";
+
+        	document.getElementById("test").innerHTML = emailSelector;
+        	var currentEmailBlock = document.querySelectorAll(".email .body");
+
+        	var currentEmailBody = currentEmailBlock[emailSelector];
 
         	if(currentEmailBody.style.display != "block")
         	{
@@ -97,7 +109,7 @@
         	{
         		currentEmailBody.style.display = "none";
         	}
-
+			
 
         	
         }
@@ -184,31 +196,6 @@
 			</div>
 
 			<div class="emails">
-
-				<!--
-				<div class="email unread" id="email-1">
-					<ul class="info" onclick="toggleEmail(1)">
-						<li class="date">Sample Date</li>
-						<li class="sender">Sample Sender</li>
-						<li class="subject">Sample Subject</li>
-					</ul>
-					<div class="body">
-						<p>Sample Body blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p> 
-					</div>
-				</div>
-				<div class="email read" id="email-0">
-					<ul class="info" onclick="toggleEmail(0)">
-						<li class="date">Sample Date</li>
-						<li class="sender">Sample Sender</li>
-						<li class="subject">Sample Subject</li>
-					</ul>
-					<div class="body">
-						<p>Sample Body blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p> 
-					</div>
-				</div>
-
-				-->
-
 			</div>
 
 		</main>
