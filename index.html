@@ -32,7 +32,7 @@
         	
         	var currentEmailBody = document.querySelectorAll("#email-" + emailID + " .body")[0];
 
-        	if(currentEmailBody.style.display == "none")
+        	if(currentEmailBody.style.display != "block")
         	{
         		currentEmailBody.style.display = "block";
 
@@ -47,7 +47,10 @@
 
         	else
         	{
+        		document.getElementById("test").innerHTML = currentEmailBody.style.display;
         		currentEmailBody.style.display = "none";
+
+
         	}
         	
         }
