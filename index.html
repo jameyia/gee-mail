@@ -9,9 +9,7 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-        // SORT EMAILS
-
+       
         // INITIAL JAVASCRIPT CODE
 
         var totalEmails = window.geemails.length;
@@ -19,18 +17,11 @@
 
         var emailDate;
 
-        //Sort Dates
+        //Sort Emails by Dates
 
         window.geemails.sort(function(a, b){return b.date.getTime()-a.date.getTime();});
 
-
-        document.getElementById("test").innerHTML = window.geemails[1].date;
-        document.getElementById("test2").innerHTML = window.geemails[0].date;
-        document.getElementById("test3").innerHTML = window.geemails[1].date - window.geemails[0].date;
-
        	//Load Initial Emails
-
-
 
        	for(var i = 0; i < totalEmails; i++)
        	{
@@ -49,6 +40,8 @@
 
 
         // RECURRING JAVASCRIPT CODE
+
+        //setInterval()
 
       }
 

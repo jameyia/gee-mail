@@ -60,6 +60,10 @@ main {
 	background-color: #000000;
 	color: #FFFFFF;
 }
+
+.emails{
+	overflow: auto;
+}
 .legend ul {
 	width: 100%;
 	text-align: left;
@@ -70,7 +74,7 @@ main {
 
 .legend li {
 	display:inline-block;
-	width: 30%;
+	width: 33.3%;
 	text-align: left;
 	border-left: 1px solid red;
 	margin-left: -1px;
@@ -83,12 +87,18 @@ main {
 .email ul {
 	width: 100%;
 	text-align: left;
+	font-size: 1.2em;
+	cursor: pointer;
 }
+
+.email ul:hover{color: #FF0000;}
 
 .email li {
 	display:inline-block;
-	width: 30%;
-
+	width: 33.3%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .unread {font-weight: bold;}
@@ -97,6 +107,6 @@ main {
 .body {
 	display: none;
 	border-top: 1px dotted #FF0000;
-}
+	font-size: 0.8em;
 
 /* === FOOTER === */
