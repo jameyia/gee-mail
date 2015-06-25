@@ -7,6 +7,13 @@
 
 /* === PAGE === */
 
+body {
+	max-height: 100%;
+
+	/* Cover up for short NAV Element */
+	/* Feedback> */
+	background-color: #000000;
+}
 
 
 /* === HEADER === */
@@ -23,14 +30,33 @@ header h2 {
 	margin: 0 auto;
 }
 
-#fe-mail {color: #FFAAAA;}
+header h1 {
+	font-family: Impact;
+}
+
+header h2 {
+	font-style: italic;
+}
+
+#fe-mail {
+	font-family: "Rage Italic";
+	color: #FFAAAA;
+}
 #he-mail {color: #AAAAFF;}
 
 /* === NAVIGATION === */
 
+nav {
+	float: left; 
+	
+	width:20%;
+}
+
 nav ul {
 	width: 100%;
 	text-align: center;
+	font-size: 1.2em;
+	font-family: "Arial Black";
 	background-color: #000000;
 }
 
@@ -42,28 +68,36 @@ nav a {
 
 nav a:link,
 nav a:visited {
-	color: lime;
+	color: #FF0000;
 }
 
 nav a:hover,
 nav a:active {
-		color: #FFFF00;
+		color: #FFFFFF;
 }
 
 nav li {
-	display: inline-block;
-	width: 25%;
+	width: 100%;
 }
+
+#inbox {
+	background-color: #FF0000;
+	color: #000000;
+}
+
+#inbox:hover {color: #FFFFFF;}
 /* === MAIN CONTENT (EMAILS) === */
 
 main {
+	float: right;
 	background-color: #000000;
 	color: #FFFFFF;
+	width: 80%;
+
+	border-left: 5px solid #FF0000;
+	margin-left: -5px;
 }
 
-.emails{
-	overflow: auto;
-}
 .legend ul {
 	width: 100%;
 	text-align: left;
@@ -78,6 +112,11 @@ main {
 	text-align: left;
 	border-left: 1px solid red;
 	margin-left: -1px;
+}
+
+.legend li:first-child {
+		border-left: none;
+		margin-left: none;
 }
 
 /* Email Listing */
@@ -108,5 +147,24 @@ main {
 	display: none;
 	border-top: 1px dotted #FF0000;
 	font-size: 0.8em;
+	font-family: "Courier New";
+}
 
 /* === FOOTER === */
+
+footer {
+	color: #0000AA;
+	border-top: 5px solid #FF0000;
+	text-align: right;
+	font-size: 1.5em;
+	font-family: "Gill Sans MT Condensed";
+}
+
+/* === OTHER === */
+
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
