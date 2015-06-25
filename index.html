@@ -41,9 +41,17 @@
 
         // RECURRING JAVASCRIPT CODE
 
-        //setInterval()
+        setInterval(pushNewMessage, 10000);
 
       }
+      	function pushNewMessage()
+      	{
+      		var newEmail = getEmailElement(getNewMessage());
+      		var emailList = document.getElementsByClassName("emails")[0];
+      		emailList.insertBefore(newEmail, emailList.childNodes[0]);
+      		reindexEmails();
+      		updateInbox();
+		}
 
       	function updateInbox()
       	{
@@ -64,7 +72,6 @@
 
         function toggleEmail(emailSelector)
         {
-        	document.getElementById("test").innerHTML = emailSelector;
         	var currentEmailBlock = document.querySelectorAll(".email .body");
 
         	var currentEmailBody = currentEmailBlock[emailSelector];
@@ -178,9 +185,5 @@
 		<footer>
 			<small>Designed by Jameyia Shamia in a garage</small>
 		</footer>
-
-		<p id="test">date</p>
-		<p id="test2">date</p>
-		<p id="test3">date</p>
 	</body>
 </html>
